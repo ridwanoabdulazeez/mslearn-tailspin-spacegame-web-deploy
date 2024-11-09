@@ -105,7 +105,7 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
-      vmImage: 'ubuntu-20.04'
+      name: "mytest"
     environment: staging
     variables:
     - group: 'Release'
