@@ -32,9 +32,16 @@ stages:
       inputs:
         verbose: false
 
-    - script: ./node_modules/.bin/node-sass $wwwrootDir --output $wwwrootDir
-      #'./node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
-      displayName: 'Compile Sass assets'
+    - powershell: ./node_modules/.bin/node-sass $env:wwwrootDir --output $env:wwwrootDir
+      displayName: 'Run node-sass using PowerShell'
+      
+
+    # - script: ./node_modules/.bin/node-sass $env:wwwrootDir --output $env:wwwrootDir
+    #   displayName: 'Compile Sass assets'
+    #   shell: powershell
+    # - script: ./node_modules/.bin/node-sass $wwwrootDir --output $wwwrootDir
+    #   #'./node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
+    #   displayName: 'Compile Sass assets'
 
     - task: gulp@1
       displayName: 'Run gulp tasks'
