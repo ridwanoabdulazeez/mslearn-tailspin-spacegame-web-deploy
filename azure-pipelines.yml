@@ -32,7 +32,7 @@ stages:
       inputs:
         verbose: false
 
-    - powershell: ./node_modules/.bin/sass $env:wwwrootDir --output $env:wwwrootDir
+    - powershell: ./node_modules/.bin/sass $env:wwwrootDir:$env:wwwrootDir --no-source-map #./node_modules/.bin/sass $env:wwwrootDir --output $env:wwwrootDir
       displayName: 'Run node-sass using PowerShell'
       
 
